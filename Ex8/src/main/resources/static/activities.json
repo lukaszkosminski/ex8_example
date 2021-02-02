@@ -1,0 +1,32 @@
+[
+  {
+    "description": "kupić buty",
+    "category": "SHOPPING",
+    "priority": "URGENT",
+    "deadline": {
+      "year": 2021,
+      "month": 2,
+      "day": 10
+    }
+  },
+  {
+    "description": "spotkanie godz. 19:00",
+    "category": "EVENT",
+    "priority": "NOW",
+    "deadline": {
+      "year": 2021,
+      "month": 2,
+      "day": 4
+    }
+  },
+  {
+    "description": "zakupy spożywcze",
+    "category": "SHOPPING",
+    "priority": "MEDIUM",
+    "deadline": {
+      "year": 2021,
+      "month": 1,
+      "day": 31
+    }
+  }
+]

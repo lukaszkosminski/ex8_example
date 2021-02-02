@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8">
+    <title th:text="#{index.tab}"></title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="My own private list of things to do!">
+    <meta name="keywords" content="to do list, duties">
+    <meta name="author" content="Michał Majewski">
+    <meta http-equiv="X-Ua-Compatible" content="IE=edge,chrome=1">
+
+    <!-- BOOTSTRAP CSS -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" type="text/css"/>
+
+    <!-- BOOTSTRAP ICONS -->
+    <link th:href="@{/assets/font/bootstrap-icons.css}" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="text-center">
+            <figure>
+                <blockquote class="blockquote" style="font-size: xx-large">
+                    <p>
+                        <q>Happiness is a state of activity</q>
+                    </p>
+                </blockquote>
+                <figcaption class="blockquote-footer" style="font-size: large">
+                    Aristotle
+                </figcaption>
+            </figure>
+        </div>
+    </div>
+</header>
+
+<!-- Bootstrap Bundle with Popper -->
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
+</body>
+
+</html>

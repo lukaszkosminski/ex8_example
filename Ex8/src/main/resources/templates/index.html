@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8">
+    <title th:text="#{index.tab}"></title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="My own private list of things to do!">
+    <meta name="keywords" content="to do list, duties">
+    <meta name="author" content="Michał Majewski">
+    <meta http-equiv="X-Ua-Compatible" content="IE=edge,chrome=1">
+
+    <!-- BOOTSTRAP CSS -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" type="text/css"/>
+
+    <!-- BOOTSTRAP ICONS -->
+    <link th:href="@{/assets/font/bootstrap-icons.css}" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+<!-- Header-->
+<div th:insert="~{fragments/headerView :: header}"></div>
+
+<section class="page-section">
+
+    <div class="table-responsive-sm">
+        <table class="table table-bordered">
+            <thead class="table-light">
+            <tr>
+                <th scope="col" th:text="#{activity.number}"></th>
+                <th scope="col" th:text="#{activity.category}"></th>
+                <th scope="col" th:text="#{activity.priority}"></th>
+                <th scope="col" th:text="#{activity.description}"></th>
+                <th scope="col" th:text="#{activity.deadline}"></th>
+                <th scope="col" th:text="#{activity.status}"></th>
+            </tr>
+            </thead>
+            <tbody th:each="activity,iterStat : ${activities}" th:class="${iterStat.even}">
+            <tr>
+                <th scope="row" th:text="${activities.indexOf(activity) + 1}"></th>
+                <td th:text="${activity.getCategory()}"></td>
+
+                <div th:switch="${activity.priority}">
+                    <td th:case="${T(com.infoshare.model.Priority).NOW}"
+                        th:text="${activity.getPriority()}"
+                        class="table-dark"></td>
+
+                    <td th:case="${T(com.infoshare.model.Priority).URGENT}"
+                        th:text="${activity.getPriority()}"
+                        class="table-danger"></td>
+
+                    <td th:case="${T(com.infoshare.model.Priority).HIGH}"
+                        th:text="${activity.getPriority()}"
+                        class="table-warning"></td>
+
+                    <td th:case="${T(com.infoshare.model.Priority).MEDIUM}"
+                        th:text="${activity.getPriority()}"
+                        class="table-info"></td>
+
+                    <td th:case="${T(com.infoshare.model.Priority).LOW}"
+                        th:text="${activity.getPriority()}"
+                        class="table-light"></td>
+
+                </div>
+
+                <td th:text="${activity.getDescription()}"></td>
+                <td th:text="${activity.getDeadline()}"></td>
+                <td><input class="form-check-input me-1" type="checkbox" value=""></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</section>
+
+<!-- Footer -->
+<div th:insert="~{fragments/footerView :: footer}"></div>
+
+<!-- Bootstrap Bundle with Popper -->
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
+</body>
+
+</html>
